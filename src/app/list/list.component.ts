@@ -11,17 +11,17 @@ import { FontsService } from '../fonts.service';
   styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit {
-  private fonts: IFontItem[];
-  private keyword: string;
-  private categorySerif: boolean;
-  private categorySansSerif: boolean;
-  private categoryHandwriting: boolean;
-  private categoryMonospace: boolean;
-  private sortingType: FontSortingType;
-  private trendingSorting = Trending;
-  private popularSorting = Popular;
-  private dateSorting = DateAdded;
-  private alphaSorting = Alpha;
+  fonts: IFontItem[];
+  keyword: string;
+  categorySerif: boolean;
+  categorySansSerif: boolean;
+  categoryHandwriting: boolean;
+  categoryMonospace: boolean;
+  sortingType: FontSortingType;
+  trendingSorting = Trending;
+  popularSorting = Popular;
+  dateSorting = DateAdded;
+  alphaSorting = Alpha;
 
   constructor(private fontsService: FontsService) {
     this.fonts = [];
