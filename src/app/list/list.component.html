@@ -1,14 +1,16 @@
 <header class="w3-top w3-bar vh-l5 vh-m6 vh-s7 w3-padding bg-1">
   <a href="#home"><img src="../../assets/images/logo.svg" alt="Logo" style="height:100%"></a>
 </header>
-<ul class="w3-ul margin-top-l5 margin-top-m6 margin-top-s7" id="fonts_list">
-  <li class="w3-margin text-right"><em>{{fonts.length}} results</em></li>
+<!-- list -->
+<ul class="w3-ul margin-top-l6 margin-top-m7 margin-top-s8" id="fonts_list">
+  <!-- <li class="w3-margin text-right"><em>{{fonts.length}} results</em></li> -->
   <li class="w3-card-4 w3-margin fonts-list-item"
       *ngFor="let item of fonts; let i = index"
+      [ngClass]="{'w3-hide': !isValid(item)}"
       [id]="'fonts_list_item_'+i">
     <a class="fonts-list-family" [href]="'#fonts_list_item_'+i" (click)="showEditableContent($event, 'fonts_list_item_'+i)">{{item.family}}</a>
     <div [id]="'fonts_list_edit'+i"
-         class="break-word w3-animate-bottom vh-min-l40 vh-min-m60 vh-min-s70 fonts-list-editable"
+         class="break-word w3-animate-bottom vh-min-l40 vh-min-m60 vh-min-s70 w3-margin-top fonts-list-editable"
          contenteditable>
         ABCDEFGHIJKLMNOPQRSTUVWXYZ<br/>
         abcdefghijklmnopqrstuvwxyz<br/>
@@ -16,3 +18,51 @@
     </div>
   </li>
 </ul>
+<!-- search panel -->
+<section class="w3-col w3-container l2 bg-2 vh-l100 w3-animate-right docked-right-2 w3-hide-medium w3-hide-small">
+    <div class="w3-col l12 vh-l5 vh-m6 vh-s7">
+      <input class="w3-input w3-border w3-border-white w3-round w3-margin-top w3-text-white"
+             type="text"
+             id="search_keyword"
+             placeholder="type a keyword ..."
+             [(ngModel)]="keyword" />
+    </div>
+    <div class="w3-col l12 w3-margin-top">
+      <h4>Category</h4>
+      <label class="w3-input"><input type="checkbox" class="w3-check" [(ngModel)]="categorySerif"/>&nbsp;Serif</label>
+      <label class="w3-input"><input type="checkbox" class="w3-check" [(ngModel)]="categorySansSerif"/>&nbsp;Sans Serif</label>
+      <label class="w3-input"><input type="checkbox" class="w3-check" [(ngModel)]="categoryHandwriting"/>&nbsp;Handwriting</label>
+      <label class="w3-input"><input type="checkbox" class="w3-check" [(ngModel)]="categoryMonospace"/>&nbsp;Monospace</label>
+    </div>
+    <div class="w3-col l12 w3-margin-top">
+      <h4>Sorting</h4>
+      <label class="w3-input">
+        <input type="radio" class="w3-radio" name="sorting" 
+               (change)="sortByTrending()"
+               [checked]="sortingType.isSameAs(trendingSorting)"/>
+        &nbsp;{{trendingSorting}}
+      </label>
+      <label class="w3-input">
+        <input type="radio" class="w3-radio" name="sorting"
+               (change)="sortByPopular()"
+               [checked]="sortingType.isSameAs(popularSorting)"/>
+        &nbsp;{{popularSorting}}
+      </label>
+      <label class="w3-input">
+        <input type="radio" class="w3-radio" name="sorting" 
+               (change)="sortByDate()"
+               [checked]="sortingType.isSameAs(dateSorting)"/>
+        &nbsp;{{dateSorting}}
+      </label>
+      <label class="w3-input">
+        <input type="radio" class="w3-radio" name="sorting"
+               (change)="sortByAlpha()"
+               [checked]="sortingType.isSameAs(alphaSorting)"/>
+        &nbsp;{{alphaSorting}}
+      </label>
+    </div>
+</section>
+<!-- setting panel -->
+<section class="w3-col w3-container l2 bg-3 vh-l100 w3-animate-right docked-right w3-hide-medium w3-hide-small">
+    
+</section>
