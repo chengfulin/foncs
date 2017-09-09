@@ -1,0 +1,16 @@
+.docked-right {
+    top: 0;
+    bottom: 0;
+    right: 0;
+    position: fixed;
+    z-index: 20;
+}
+
+.docked-right-2 {
+    top: 0;
+    bottom: 0;
+    right: 16.6666%;
+    position: fixed;
+    z-index: 10;
+}
+

@@ -1,0 +1,18 @@
+<header class="w3-top w3-bar vh-l5 vh-m6 vh-s7 w3-padding bg-1">
+  <a href="#home"><img src="../../assets/images/logo.svg" alt="Logo" style="height:100%"></a>
+</header>
+<ul class="w3-ul margin-top-l5 margin-top-m6 margin-top-s7" id="fonts_list">
+  <li class="w3-margin text-right"><em>{{fonts.length}} results</em></li>
+  <li class="w3-card-4 w3-margin fonts-list-item"
+      *ngFor="let item of fonts; let i = index"
+      [id]="'fonts_list_item_'+i">
+    <a class="fonts-list-family" [href]="'#fonts_list_item_'+i" (click)="showEditableContent($event, 'fonts_list_item_'+i)">{{item.family}}</a>
+    <div [id]="'fonts_list_edit'+i"
+         class="break-word w3-animate-bottom vh-min-l40 vh-min-m60 vh-min-s70 fonts-list-editable"
+         contenteditable>
+        ABCDEFGHIJKLMNOPQRSTUVWXYZ<br/>
+        abcdefghijklmnopqrstuvwxyz<br/>
+        1234567890!@#$%^*()_+
+    </div>
+  </li>
+</ul>

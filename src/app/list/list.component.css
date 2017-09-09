@@ -1,0 +1,12 @@
+.fonts-list-item .fonts-list-family {
+    font-size: 1.5em;
+    text-decoration: none;
+}
+
+.fonts-list-item .fonts-list-editable {
+    display: none;
+}
+
+.fonts-list-item.active .fonts-list-editable {
+    display: block;
+}

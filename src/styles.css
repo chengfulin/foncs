@@ -1,1 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    background-color: rgb(43, 43, 43);
+    color: rgb(200, 200, 200)
+}
+
+.bg-1 {
+    background-color: rgb(43, 43, 43);
+}
+
+.bg-2 {
+    background-color: rgb(55, 55, 55);
+}
+
+.bg-3 {
+    background-color: rgb(67, 67, 67);
+}
+
+.text-right {
+    text-align: right;
+}
+
+.break-word {
+    word-break: break-all;
+}
+
+.overflow-scroll {
+    overflow: scroll;
+}
+
+.overflow-hidden {
+    overflow: hidden;
+}
