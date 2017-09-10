@@ -64,5 +64,41 @@
 </section>
 <!-- setting panel -->
 <section class="w3-col w3-container l2 bg-3 vh-l100 w3-animate-right docked-right w3-hide-medium w3-hide-small">
-    
+  <div class="w3-col l12 margin-top-l6 margin-top-m7 margin-top-s8">
+    <h4>Color</h4>
+    <h5>Font color</h5>
+    <input class="slider color-slider-r" type="range"
+            [(ngModel)]="currentFontColor.red"
+            (change)="changeEditContentFontColor()"
+            step="1" min="0" max="255" />
+    <div class="w3-center">{{currentFontColor.red}}</div>
+    <input class="slider color-slider-g" type="range"
+            [(ngModel)]="currentFontColor.green"
+            (change)="changeEditContentFontColor()"
+            step="1" min="0" max="255" />
+    <div class="w3-center">{{currentFontColor.green}}</div>
+    <input class="slider color-slider-b" type="range"
+            [(ngModel)]="currentFontColor.blue"
+            (change)="changeEditContentFontColor()"
+            step="1" min="0" max="255" />
+    <div class="w3-center">{{currentFontColor.blue}}</div>
+  </div>
+  <!-- Size panel -->
+  <div class="w3-col l12 w3-margin-top">
+        <h4>Size</h4>
+        <label class="w3-input" *ngFor="let item of fontSizes">
+          <input type="radio" class="w3-radio" name="sizes" 
+                 (change)="showFontSizeSlider(item)"
+                 [checked]="currentFontSize.isSameUnit(item)"/>
+          &nbsp;{{item.unit}}
+        </label>
+        <br/>
+        <input class="slider font-size-slider" type="range"
+               [(ngModel)]="currentFontSize.value"
+               (change)="changeEditContentFontSize()"
+               step="1"
+               [min]="currentFontSize.min"
+               [max]="currentFontSize.max" />
+        <div class="w3-center">{{currentFontSize.value}}&nbsp;{{currentFontSize.unit}}</div>
+      </div>
 </section>

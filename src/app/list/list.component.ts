@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { IFontItem } from '../models/FontItem';
 import { FontSortingType, Trending, Popular, DateAdded, Alpha } from '../models/FontSortingType';
+import { FontSize, Px, Pt, Em, Ex, Percent } from '../models/FontSize';
+import { Color } from '../models/Color';
 
 import { FontsService } from '../fonts.service';
 
@@ -22,6 +24,9 @@ export class ListComponent implements OnInit {
   popularSorting = Popular;
   dateSorting = DateAdded;
   alphaSorting = Alpha;
+  fontSizes: FontSize[];
+  currentFontSize: FontSize;
+  currentFontColor: Color;
 
   constructor(private fontsService: FontsService) {
     this.fonts = [];
@@ -30,6 +35,9 @@ export class ListComponent implements OnInit {
     this.categoryHandwriting = true;
     this.categoryMonospace = true;
     this.sortingType = Trending;
+    this.fontSizes = [ Px, Pt, Em, Ex, Percent ];
+    this.currentFontSize = Px;
+    this.currentFontColor = new Color(200, 200, 200);
   }
 
   ngOnInit() {
@@ -47,6 +55,7 @@ export class ListComponent implements OnInit {
   showEditableContent(ev: Event, itemId: string) {
     ev.preventDefault();
     const item = document.querySelector(`#${itemId}`);
+    this.resetEditContentStyles();
     if (item && item.classList.contains('active')) {
       item.classList.remove('active');
     } else {
@@ -101,5 +110,48 @@ export class ListComponent implements OnInit {
         .then((data) => {
           this.fonts = data;
         });
+  }
+
+  /**
+   * onchange handler for fontsize radio buttons
+   * @param size font size
+   */
+  showFontSizeSlider(size: FontSize) {
+    this.currentFontSize = size;
+  }
+
+  /**
+   * onchange handler for font size slider
+   */
+  changeEditContentFontSize() {
+    const editable = document.querySelector('.fonts-list-item.active .fonts-list-editable') as HTMLElement;
+    if (!editable) {
+      return;
+    }
+    editable.style.fontSize = `${this.currentFontSize.value}${this.currentFontSize.unit}`;
+  }
+
+  /**
+   * onchange handler for font colro sliders
+   */
+  changeEditContentFontColor() {
+    const editable = document.querySelector('.fonts-list-item.active .fonts-list-editable') as HTMLElement;
+    if (!editable) {
+      return;
+    }
+    editable.style.color = `rgb(${this.currentFontColor.red},${this.currentFontColor.green}, ${this.currentFontColor.blue})`;
+  }
+
+  /**
+   * Reset styles of the active editable content
+   */
+  resetEditContentStyles() {
+    const editable = document.querySelector('.fonts-list-item.active .fonts-list-editable') as HTMLElement;
+    if (!editable) {
+      return;
+    }
+    editable.style.fontSize = 'unset';
+    editable.style.color = 'unset';
+    editable.style.backgroundColor = 'unset';
   }
 }
