@@ -1,5 +1,11 @@
-<header class="w3-top w3-bar vh-l5 vh-m6 vh-s7 w3-padding bg-1">
+<header class="w3-top w3-bar vh-l5 vh-m6 vh-s7 w3-padding bg-1 w3-col l8">
   <a href="#home"><img src="../../assets/images/logo.svg" alt="Logo" style="height:100%"></a>
+  <div class="w3-btn w3-right w3-card-2" id="setting_toggle" (click)="showPanel('setting_panel')" title="setting">
+    <img src="../../assets/images/setting2.svg" width="30" height="30" alt="setting"/>
+  </div>
+  <div class="w3-btn w3-right w3-card-2 w3-hide-large" id="search_toggle" (click)="showPanel('search_panel')" title="search">
+    <img src="../../assets/images/search.svg" width="30" height="30" alt="search"/>
+  </div>
 </header>
 <!-- list -->
 <ul class="w3-ul margin-top-l6 margin-top-m7 margin-top-s8" id="fonts_list">
@@ -7,7 +13,8 @@
   <li class="w3-card-4 w3-margin fonts-list-item"
       *ngFor="let item of fonts; let i = index"
       [ngClass]="{'w3-hide': !isValid(item)}"
-      [id]="'fonts_list_item_'+i">
+      [id]="'fonts_list_item_'+i"
+      (click)="setFontStyle(item, 'fonts_list_item_'+i)">
     <a class="fonts-list-family" [href]="'#fonts_list_item_'+i" (click)="showEditableContent($event, 'fonts_list_item_'+i)">{{item.family}}</a>
     <div [id]="'fonts_list_edit'+i"
          class="break-word w3-animate-bottom vh-min-l40 vh-min-m60 vh-min-s70 w3-margin-top fonts-list-editable"
@@ -19,7 +26,7 @@
   </li>
 </ul>
 <!-- search panel -->
-<section class="w3-col w3-container l2 bg-2 vh-l100 w3-animate-right docked-right-2 w3-hide-medium w3-hide-small">
+<section id="search_panel" class="w3-sidebar slide-panel w3-col w3-container l4 m6 s8 bg-2 vh-l100 w3-animate-right docked-right">
     <div class="w3-col l12 vh-l5 vh-m6 vh-s7">
       <input class="w3-input w3-border w3-border-white w3-round w3-margin-top w3-text-white"
              type="text"
@@ -63,7 +70,7 @@
     </div>
 </section>
 <!-- setting panel -->
-<section class="w3-col w3-container l2 bg-3 vh-l100 w3-animate-right docked-right w3-hide-medium w3-hide-small">
+<section id="setting_panel" class="w3-sidebar slide-panel w3-col w3-container l4 m6 s8 bg-3 vh-l100 w3-animate-right docked-right">
   <div class="w3-col l12 margin-top-l6 margin-top-m7 margin-top-s8">
     <h4>Color</h4>
     <h5>Font color</h5>
@@ -102,3 +109,4 @@
         <div class="w3-center">{{currentFontSize.value}}&nbsp;{{currentFontSize.unit}}</div>
       </div>
 </section>
+<div id="sidebar_overlay" class="w3-overlay w3-animate-opacity" (click)="hidePanel()"></div>

@@ -154,4 +154,36 @@ export class ListComponent implements OnInit {
     editable.style.color = 'unset';
     editable.style.backgroundColor = 'unset';
   }
+
+  setFontStyle(item: IFontItem, elemId: string) {
+    const styleElem = document.createElement('style');
+    styleElem.innerHTML = `@import url('https://fonts.googleapis.com/css?family=${encodeURI(item.family)}');`;
+    document.head.appendChild(styleElem);
+
+    const elem = document.querySelector(`#${elemId} .fonts-list-editable`) as HTMLElement;
+    if (elem) {
+      elem.style.fontFamily = item.family;
+    }
+  }
+
+  showPanel(panelId: string) {
+    const overlay = document.querySelector('#sidebar_overlay') as HTMLElement;
+    const panel = document.querySelector(`#${panelId}`) as HTMLElement;
+    if (!panel) {
+      return;
+    }
+    panel.classList.add('active');
+    if (overlay) {
+      overlay.classList.add('active');
+    }
+  }
+
+  hidePanel() {
+    const overlay = document.querySelector('#sidebar_overlay') as HTMLElement;
+    const panel = document.querySelector(`.slide-panel.active`) as HTMLElement;
+    if (overlay) {
+      overlay.classList.remove('active');
+    }
+    panel.classList.remove('active');
+  }
 }

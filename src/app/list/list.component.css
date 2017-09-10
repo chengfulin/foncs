@@ -12,6 +12,7 @@
 }
 
 .fonts-list-item.active .fonts-list-editable {
+    font-size: 20px;
     display: block;
 }
 
@@ -23,12 +24,27 @@
     z-index: 20;
 }
 
-.docked-right-2 {
-    top: 0;
-    bottom: 0;
-    right: 16.6666%;
-    position: fixed;
-    z-index: 10;
+#search_panel {
+    display: none;
+}
+#search_panel.active {
+    display: block;
+}
+@media screen and (min-width: 993px) {
+    #search_panel {
+        display: block;
+    }
+}
+
+#setting_panel {
+    display: none;
+}
+
+#setting_panel.active {
+    display: block;
+}
+#sidebar_overlay.active {
+    display: block;
 }
 
 input#search_keyword {

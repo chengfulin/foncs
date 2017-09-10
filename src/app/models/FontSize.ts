@@ -24,8 +24,8 @@ export class FontSize {
     }
 }
 
-export const Px = new FontSize('px', 200, 5, 12);
-export const Pt = new FontSize('pt', 100, 5, 12);
+export const Px = new FontSize('px', 200, 5, 20);
+export const Pt = new FontSize('pt', 100, 5, 20);
 export const Em = new FontSize('em', 10, 1, 1);
-export const Ex = new FontSize('ex', 20, 1, 1);
+export const Ex = new FontSize('ex', 20, 1, 2);
 export const Percent = new FontSize('%', 200, 1, 10);
