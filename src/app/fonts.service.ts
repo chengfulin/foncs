@@ -13,7 +13,7 @@ export class FontsService {
 
   constructor(private http: Http) {
     this.params = new Map<string, string>();
-    /* change yout KEY */
+    /* Replace by your KEY */
     this.params.set('key', 'AIzaSyCJ6nyGQseJZlqm_-hucTL1Fh_48K_4jNk');
     this.params.set('subset', 'latin');
   }

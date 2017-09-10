@@ -16,6 +16,14 @@
     display: block;
 }
 
+#header_bar img {
+    height: 100%;
+}
+
+#header_bar .toggle-btn.active {
+    background-color: rgb(67, 67, 67);
+}
+
 .docked-right {
     top: 0;
     bottom: 0;
@@ -24,25 +32,24 @@
     z-index: 20;
 }
 
-#search_panel {
+.slide-panel {
     display: none;
 }
-#search_panel.active {
+.slide-panel.active {
     display: block;
 }
+
 @media screen and (min-width: 993px) {
-    #search_panel {
+    #about_panel {
         display: block;
+        z-index: 1;
     }
 }
 
-#setting_panel {
-    display: none;
+#about_panel a {
+    color: #4CAF50; /* same as w3-green */
 }
 
-#setting_panel.active {
-    display: block;
-}
 #sidebar_overlay.active {
     display: block;
 }

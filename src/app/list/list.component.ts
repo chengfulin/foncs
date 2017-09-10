@@ -166,9 +166,14 @@ export class ListComponent implements OnInit {
     }
   }
 
+  /**
+   * Show panel with specified element id
+   * @param panelId panel id
+   */
   showPanel(panelId: string) {
     const overlay = document.querySelector('#sidebar_overlay') as HTMLElement;
     const panel = document.querySelector(`#${panelId}`) as HTMLElement;
+    console.log(panel);
     if (!panel) {
       return;
     }
@@ -178,6 +183,9 @@ export class ListComponent implements OnInit {
     }
   }
 
+  /**
+   * Hide active panel
+   */
   hidePanel() {
     const overlay = document.querySelector('#sidebar_overlay') as HTMLElement;
     const panel = document.querySelector(`.slide-panel.active`) as HTMLElement;

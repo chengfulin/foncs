@@ -16,6 +16,10 @@ body {
     background-color: rgb(67, 67, 67);
 }
 
+.bg-4 {
+    background-color: rgb(80, 80, 80);
+}
+
 .text-right {
     text-align: right;
 }

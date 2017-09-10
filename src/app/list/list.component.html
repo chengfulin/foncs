@@ -1,10 +1,22 @@
-<header class="w3-top w3-bar vh-l5 vh-m6 vh-s7 w3-padding bg-1 w3-col l8">
-  <a href="#home"><img src="../../assets/images/logo.svg" alt="Logo" style="height:100%"></a>
-  <div class="w3-btn w3-right w3-card-2 w3-margin-right" id="setting_toggle" (click)="showPanel('setting_panel')" title="setting">
-    <img src="../../assets/images/setting.svg" width="30" height="30" alt="setting"/>
+<header class="w3-top w3-bar vh-l6 vh-m6 vh-s6 bg-1 w3-col l8" id="header_bar">
+  <a href="#home"><img src="../../assets/images/logo.svg" alt="Logo"></a>
+  <div class="w3-btn w3-right w3-card-2 w3-hide-large w3-margin-right vh-l6 vh-m6 vh-s6 toggle-btn"
+       id="about_toggle"
+       title="about"
+       (click)="showPanel('about_panel')">
+    <img src="../../assets/images/info.svg" alt="About"/>
   </div>
-  <div class="w3-btn w3-right w3-card-2 w3-hide-large w3-margin-right" id="search_toggle" (click)="showPanel('search_panel')" title="search">
-    <img src="../../assets/images/search.svg" width="30" height="30" alt="search"/>
+  <div class="w3-btn w3-right w3-card-2 w3-margin-right vh-l6 vh-m6 vh-s6 toggle-btn"
+       id="setting_toggle"
+       title="setting"
+       (click)="showPanel('setting_panel')">
+    <img src="../../assets/images/setting.svg" alt="Setting"/>
+  </div>
+  <div class="w3-btn w3-right w3-card-2 w3-margin-right vh-l6 vh-m6 vh-s6 toggle-btn"
+       id="search_toggle"
+       title="search"
+       (click)="showPanel('search_panel')">
+    <img src="../../assets/images/search.svg" alt="Search"/>
   </div>
 </header>
 <!-- list -->
@@ -25,8 +37,43 @@
     </div>
   </li>
 </ul>
+<!-- about panel -->
+<section id="about_panel" class="w3-sidebar slide-panel w3-col w3-container l4 m6 s8 bg-2 vh-l100 w3-animate-right docked-right">
+  <div class="w3-col l12 margin-top-l6 margin-top-m7 margin-top-s8">
+    <h3>Description</h3>
+    <div>
+      This is a demo website for browsing fonts with <strong><a href="https://fonts.google.com/" target="_blank">Google Fonts</a></strong> service, producing some features:
+      <ul>
+        <li>Search with keyword</li>
+        <li>Category filter</li>
+        <li>Sorting</li>
+        <li>Editable sample text</li>
+        <li>Custom font color</li>
+        <li>Custom font size</li>
+      </ul>
+      Develop with <strong><a href="https://angular.io/" target="_blank">Angular</a></strong> framework, <strong><a href="https://www.w3schools.com/w3css/" target="_blank">W3.CSS</a></strong> and <strong><a href="http://fontawesome.io/" target="_blank">Font Awesome</a></strong>.<br/>
+      Build with <strong><a href="https://cli.angular.io/" target="_blank">Angular CLI</a></strong>, then hosted on the <strong><a href="https://www.heroku.com/" target="_blank">Heroku</a></strong>.
+    </div>
+    <br/>
+    
+    <h3>Project Page</h3>
+    <a href="https://github.com/chengfulin/foncs" class="w3-text-green" target="_blank">
+      <span class="fa fa-github w3-xxlarge"></span>&nbsp;chengfulin/foncs
+    </a>
+    <br/>
+
+    <h3>Author</h3>
+    <a href="https://github.com/chengfulin/" class="w3-text-green">
+      <span class="fa fa-github w3-xxlarge"></span>&nbsp;ChengFu, Lin
+    </a>
+    <br/>
+
+    <h3>Date</h3>
+    <span>2017/09/10</span>
+  </div>
+</section>
 <!-- search panel -->
-<section id="search_panel" class="w3-sidebar slide-panel w3-col w3-container l4 m6 s8 bg-2 vh-l100 w3-animate-right docked-right">
+<section id="search_panel" class="w3-sidebar slide-panel w3-col w3-container l4 m6 s8 bg-3 vh-l100 w3-animate-right docked-right">
     <div class="w3-col l12 vh-l5 vh-m6 vh-s7">
       <input class="w3-input w3-border w3-border-white w3-round w3-margin-top w3-text-white"
              type="text"
@@ -70,7 +117,7 @@
     </div>
 </section>
 <!-- setting panel -->
-<section id="setting_panel" class="w3-sidebar slide-panel w3-col w3-container l4 m6 s8 bg-3 vh-l100 w3-animate-right docked-right">
+<section id="setting_panel" class="w3-sidebar slide-panel w3-col w3-container l4 m6 s8 bg-4 vh-l100 w3-animate-right docked-right">
   <div class="w3-col l12 margin-top-l6 margin-top-m7 margin-top-s8">
     <h4>Color</h4>
     <h5>Font color</h5>
@@ -109,4 +156,5 @@
         <div class="w3-center">{{currentFontSize.value}}&nbsp;{{currentFontSize.unit}}</div>
       </div>
 </section>
+
 <div id="sidebar_overlay" class="w3-overlay w3-animate-opacity" (click)="hidePanel()"></div>
